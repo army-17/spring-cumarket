@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+    <link rel="stylesheet" href="css/cumarket.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script th:inline="javascript">
+        $(function () {
+
+            let msg = [[${msg}]];
+            console.log(msg);
+            if (msg != null) {
+                alert(msg);
+            }
+
+            $("#delBtn").click(function () {
+                let result = confirm("게시물을 삭제하시겠습니까?");
+                if (result) {
+                    if ([[${board.bwriter.mid}]] === [[${login}]]) {
+                        location.href = "delete?bnum=" + [[${board.bnum}]];
+                    } else if ([[${login}]] == "admin") {
+                        alert("관리자 권한으로 게시글을 삭제합니다.")
+                        location.href = "delete?bnum=" + [[${board.bnum}]];
+                    } else {
+                        alert("본인이 작성한 게시글만 삭제할 수 있습니다!")
+                    }
+                }
+            });
+
+            //수정 버튼(미완성)
+            $("#upbtn").click(function () {
+                //session에서 받아온 login정보(mid)와 게시글 작성자 정보(mid) 비교
+                if ([[${board.bwriter.mid}]] === [[${login}]]) {
+                    location.href = "updateFrm?bnum=" + [[${board.bnum}]];
+                } else if ([[${login}]] == "admin") {
+                    alert("관리자 권한으로 게시글을 수정합니다.")
+                    location.href = "updateFrm?bnum=" + [[${board.bnum}]];
+                } else {
+                    alert("본인이 작성한 게시글만 수정할 수 있습니다!")
+                }
+            });
+
+            $("#backbtn").click(function () {
+                location.href = "list?pageNum=" + [[${session.pageNum}]];
+            });
+
+            $(document).ready(function () {
+                $('.slider').slick({
+                    autoplay: true,
+                    autoplaySpeed: 1000,
+                    dots: true,
+                    arrows: true,
+                    variableWidth: true,
+                });
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+<th:block th:include="header.html"></th:block>
+<!--이미지 (슬라이더 가능하면 슬라이더로)-->
+<section id="article-images">
+    <div>
+        <div class="image-wrap">
+            <div class="visual">
+                <th:block th:if="${#lists.isEmpty(bfList)}">
+                    <div id="mimage-wrap"><img src="/images/오이1.png"></div>
+                </th:block>
+                <th:block th:unless="${#lists.isEmpty(bfList)}">
+                    <div class="slider">
+                        <th:block th:each="bf:${bfList}">
+                            <div><img class="s-img"
+                                      th:src="@{download(bfsysname=${bf.bfsysname},bforiname=${bf.bforiname})}"></div>
+                        </th:block>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--프로필-->
+<section id="article-profile">
+    <div id="article-profile-t">
+        <div class="space-between">
+            <div style="display: flex;">
+                <div id="article-profile-image">
+                    <img src="/images/profile.png">
+                </div>
+                <div id="article-profile-left">
+                    <div id="nickname" th:text="${board.bwriter.mid}"></div>
+                    <div id="local" th:text="${board.bloc}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="article-description">
+    <h1 id="btitle" style="margin-top: 0px" th:text="${board.btitle}"></h1>
+    <p th:text="${#dates.format(board.bdate, 'yyyy-MM월-dd일')}"></p>
+    <p id="bpname" th:text="${board.bpname}"> &nbsp
+        <time id="bdate" th:text="${#dates.format(baord.bdate, 'yyyy-MM-dd HH:mm:ss')}"></time>
+    </p>
+    <p id="bprice" th:text="${board.bprice}+'원'"></p>
+    <div id="article-content">
+        <p id="bcontent" th:text="${board.bcontent}">
+
+        </p>
+    </div>
+
+</section>
+<div class="btn-area">
+    <button id="backbtn">목록</button>
+    <button id="upbtn">수정</button>
+    <button id="delBtn">삭제</button>
+</div>
+
+<th:block th:include="footer.html"></th:block>
+</body>
+
+</html>
