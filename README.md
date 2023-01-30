@@ -5,7 +5,7 @@
 - **프로젝트 인원 : 4명**
 - **프로젝트 개요 : 중고거래 플랫폼 CuMarket**
 - **사용 프로그램 : IntelliJ, MySQL**
-- **사용 언어 : Java, Html, Css, JavaScript, jQuery
+- **사용 언어 : Java, Html, Css, JavaScript, jQuery**
 
 ## 환경 구성
 
