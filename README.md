@@ -21,3 +21,14 @@
 
 **[ 사이트의 주요 기능 ]**
 1. 거래를 원하는 물품 게시글 등록
+
+
+## DB
+
+**ERD**
+<img width="402" alt="cuMarket ERD" src="https://user-images.githubusercontent.com/96126414/215404216-d0afc262-3cbc-4294-bd85-9f439f3ffefd.png">
+
+**DB 설명**
+- membertbl : 사이트 이용자와 관리자(admin) 정보
+- boardtbl : 사이트 이용자들이 작성한 게시물 정보
+- boardfiletbl : 해당 게시물에 업로드 된 파일 정보
