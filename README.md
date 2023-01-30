@@ -31,5 +31,5 @@
 
 **DB 설명**
 - membertbl : 사이트 이용자와 관리자(admin) 정보
-- boardtbl : 사이트 이용자들이 작성한 게시물 정보
-- boardfiletbl : 해당 게시물에 업로드 된 파일 정보
+- boardtbl : 사이트 이용자들이 작성한 글 정보
+- boardfiletbl : 해당 게시에 업로드 된 파일 정보
