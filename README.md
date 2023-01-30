@@ -26,7 +26,8 @@
 ## DB
 
 **ERD**
-<img width="402" alt="cuMarket ERD" src="https://user-images.githubusercontent.com/96126414/215404216-d0afc262-3cbc-4294-bd85-9f439f3ffefd.png">
+
+<img width="402" alt="cuMarket ERD" src="https://user-images.githubusercontent.com/96126414/215404216-d0afc262-3cbc-4294-bd85-9f439f3ffefd.png"><br><br>
 
 **DB 설명**
 - membertbl : 사이트 이용자와 관리자(admin) 정보
