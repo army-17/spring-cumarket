@@ -17,15 +17,16 @@
 
 ## 프로젝트 설명
 
-CRUD 기능 위주로 당근마켓을 벤치마킹한 중고거래 사이트 CuMarket을 제작하였습니다.
+CRUD 기능 위주로 당근마켓을 벤치마킹한 중고거래 사이트 CuMarket을 제작하였습니다.<br><br>
 
 **[ 사이트의 주요 기능 ]**
 
 중고거래를 원하는 물품을 등록하고 다른 이용자들은 게시글을 볼 수 있습니다.
+<br><br>
 
 **[ 메인 페이지 ]**
-<img width="485" alt="image" src="https://user-images.githubusercontent.com/96126414/224473398-032b3cce-a009-4eed-8071-38dc0228e3cf.png">
-<br><br>
+
+<img width="485" alt="image" src="https://user-images.githubusercontent.com/96126414/224473398-032b3cce-a009-4eed-8071-38dc0228e3cf.png"><br><br>
 
 **[ 주요 담당 기능 ]**
 
